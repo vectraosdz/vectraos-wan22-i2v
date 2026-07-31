@@ -2,6 +2,10 @@ FROM runpod/worker-comfyui:5.8.6-base
 
 WORKDIR /app
 
+RUN apt-get update && \
+    apt-get install -y curl && \
+    rm -rf /var/lib/apt/lists/* 
+
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app
 ENV COMFYUI_PATH=/ComfyUI
